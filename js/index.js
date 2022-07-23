@@ -13,7 +13,14 @@ for (i=0; i<skills.length; i++) {
     skillsList.appendChild(skill); 
 
 }
+const messageForm = document.querySelector('[name="leave_message"]');
+console.log(messageForm.innerHTML.trim());
+messageForm.addEventListener('submit',(e) => {
+ e.preventDefault();
 
+});
+console.log(messageForm);
+console.log('Test message');
 console.log(today);
 console.log(thisYear);
 console.log(footer);
