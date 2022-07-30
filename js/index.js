@@ -4,7 +4,7 @@ let footer = document.querySelector('footer');
 let copyright = document.createElement('p');
 copyright.innerHTML = `Rinata ${thisYear}`
 footer.append(copyright);
-let skills = ['Agile','JavaScrip', 'HTML'];
+let skills = ['Agile','JavaScript', 'HTML'];
 let skillsSection = document.querySelector('#skills')
 let skillsList = skillsSection.querySelector('ul');
 for (i=0; i<skills.length; i++) {
