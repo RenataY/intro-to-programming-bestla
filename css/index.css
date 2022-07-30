@@ -1,0 +1,27 @@
+body {
+    background-color: mistyrose;
+    color: navy;
+    font-family: 'Times New Roman', 'Cambria', 'Garamond' ;
+    padding: 0px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: midnightblue;
+}
+h2, h3 {
+    font-size: 30px;
+    font-weight: bold;
+    color: midnightblue;
+}
+
+#experience {
+    list-style-type: none;
+}
+#skills {
+    list-style-type: none;
+    font-style: italic;
+    font-weight: bold;
+    text-transform: uppercase;
+}
