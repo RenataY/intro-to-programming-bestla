@@ -20,8 +20,8 @@ const emailInput = messageForm.querySelector('[name="email"]');
 const messageInput = messageForm.querySelector('[name="message"]');
 const messageSection = document.getElementById('messages');
 const messageList = messageSection.querySelector('ul');
-const removeButton = document.createElement ('button');
-const editButton = document.createElement ('button');
+//const removeButton = document.createElement ('button');
+//const editButton = document.createElement ('button');
 
 function hide () {
     if (messageList.childElementCount == 0) {
@@ -31,6 +31,45 @@ function hide () {
     }
 }
 
+function messageButtonEventListener (button) {
+    button.addEventListener('click', (e) => {
+        if (button.textContent==="edit") {
+            button.textContent = 'save';
+            //get reference to the li node of the message
+            const li = e.target.parentNode;
+            //get reference to the span node within li
+            const span = li.querySelector('span');
+            //create an input element 
+            const input = document.createElement('input');
+            input.value = span.textContent;
+            li.insertBefore(input,span);
+            span.remove();
+            
+        } else if (button.textContent==="save") {
+            button.textContent = 'edit'; 
+            const li = e.target.parentNode;
+            const input = li.querySelector('input');
+            const span = document.createElement('span');
+            span.textContent = input.value + ' ';
+            li.insertBefore(span,input);
+            input.remove();
+    
+        } else  if (button.textContent === 'remove') {
+                let entry = e.target.parentNode;
+                entry.remove(); 
+                hide () ;
+        }
+        
+    })
+}    
+
+function createButton (type) {
+ const button = document.createElement ('button');
+ button.textContent = type;
+ button.type = 'button';
+ messageButtonEventListener (button);
+ return (button); 
+}
 hide();
 //add a new message
 messageForm.addEventListener('submit',(e) => {
@@ -40,51 +79,11 @@ messageForm.addEventListener('submit',(e) => {
  const messageInputValue = messageInput.value;
  const newMessage = document.createElement ('li');
  newMessage.innerHTML = `<a href = mailto: ${emailInputValue}> ${nameInputValue} </a> wrote: <span> ${messageInputValue} </span>`;
- //const removeButton = document.createElement ('button');
- removeButton.textContent = 'remove';
- removeButton.type = 'button'
- newMessage.appendChild(removeButton)
- removeButton.addEventListener('click', (e) => {
-    let entry = e.target.parentNode;
-    entry.remove(); 
-    hide () ;
-})
-
-editButton.textContent = 'edit';
-editButton.type = 'button';
-newMessage.appendChild(editButton)
-
-editButton.addEventListener('click', (e) => {
-    if (editButton.textContent==="edit") {
-        editButton.textContent = 'save';
-        //get reference to the li node of the message
-        const li = e.target.parentNode;
-        //get reference to the span node within li
-        const span = li.querySelector('span');
-        //create an input element 
-        const input = document.createElement('input');
-        input.value = span.textContent;
-        li.insertBefore(input,span);
-        span.remove();
-        
-    } else if (editButton.textContent==="save") {
-        editButton.textContent = 'edit'; 
-        const li = e.target.parentNode;
-        const input = li.querySelector('input');
-        const span = document.createElement('span');
-        span.textContent = input.value + ' ';
-        li.insertBefore(span,input);
-        input.remove();
-
-    }
-    
-})
-
-messageList.appendChild(newMessage);
-messageForm.reset();
-hide () ;
-
-
+ newMessage.appendChild(createButton ('remove'))
+ newMessage.appendChild(createButton ('edit'))
+ messageList.appendChild(newMessage);
+ messageForm.reset();
+ hide () ;
 });
 
 
