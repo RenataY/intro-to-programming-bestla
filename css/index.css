@@ -1,0 +1,55 @@
+body {
+    background-color: mistyrose;
+    color: navy;
+    font-family: 'Times New Roman', 'Cambria', 'Garamond' ;
+    padding: 0px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: midnightblue;
+}
+h2, h3 {
+    font-size: 30px;
+    font-weight: bold;
+    color: midnightblue;
+}
+
+#experience {
+    list-style-type: none;
+}
+#skills ul {
+    list-style-type: none;
+    font-style: italic;
+    font-weight: bold;
+    text-transform: uppercase;
+    size: 0.5em;
+}
+form[name="leave_message"] label {
+    color: coral;
+    font-size: 1.5em;
+}
+
+form[name="leave_message"] input, textarea  {
+    color: green;
+    border-style: groove;
+    width: 200px;
+}
+form[name="leave_message"] button {
+    background-color: yellowgreen;
+    color: aqua ;
+    padding: 10px 80px;
+ }
+ section[id="messages"] ul {
+    color: yellowgreen;
+    list-style-type: square;
+ }
+ section[id="messages"] button {
+    color: yellowgreen;
+    background-color: aquamarine;
+    size: 60em;
+ }
+ footer {
+    background-color: brown;
+ }
