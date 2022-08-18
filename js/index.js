@@ -86,4 +86,27 @@ messageForm.addEventListener('submit',(e) => {
  hide () ;
 });
 
+const githubRequest = new XMLHttpRequest();
+githubRequest.open('GET','https://api.github.com/users/RenataY/repos' )
+githubRequest.send ();
+githubRequest.onreadystatechange = function () {
+    if (githubRequest.readyState === 4) {
+        const repositories = JSON.parse(githubRequest.responseText);
+        console.log(repositories);
+        const projectSection=document.getElementById("projects");
+        const projectList = projectSection.querySelector ("ul");
+        //console.log(projectList);
+        for (let i=0; i<repositories.length; i++) {
+            const project= document.createElement ('li');
+            const repoLink=document.createElement('a');
+            repoLink.href=repositories[i].html_url;
+            repoLink.innerHTML = repositories[i].name;
+            projectList.appendChild(project);
+            project.appendChild(repoLink)
+
+        }
+
+    }
+}
+
 
