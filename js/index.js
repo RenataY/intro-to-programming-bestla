@@ -85,14 +85,14 @@ messageForm.addEventListener('submit',(e) => {
  messageForm.reset();
  hide () ;
 });
-
+/*
 const githubRequest = new XMLHttpRequest();
 githubRequest.open('GET','https://api.github.com/users/RenataY/repos' )
 githubRequest.send ();
 githubRequest.onreadystatechange = function () {
     if (githubRequest.readyState === 4) {
         const repositories = JSON.parse(githubRequest.responseText);
-        console.log(repositories);
+        //console.log(repositories);
         const projectSection=document.getElementById("projects");
         const projectList = projectSection.querySelector ("ul");
         //console.log(projectList);
@@ -105,8 +105,23 @@ githubRequest.onreadystatechange = function () {
             project.appendChild(repoLink)
 
         }
-
     }
 }
+*/
+fetch('https://api.github.com/users/RenataY/repos')
+    .then (response => response.json())
+    .then (data => {
+        console.log (data)
+        const projectSection=document.getElementById("projects");
+        const projectList = projectSection.querySelector ("ul");
+        for (let i=0; i<data.length; i++) {
+            const project= document.createElement ('li');
+            const repoLink=document.createElement('a');
+            repoLink.href=data[i].html_url;
+            repoLink.innerHTML = data[i].name;
+            projectList.appendChild(project);
+            project.appendChild(repoLink)
 
+        }
+    })
 
