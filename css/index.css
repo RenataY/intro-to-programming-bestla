@@ -2,14 +2,14 @@
     box-sizing: border-box;
   }
 body {
-    background-color: mistyrose;
+    background-color: lightgray;
     color: navy;
     font-family: 'Times New Roman', 'Cambria', 'Garamond' ;
     padding: 0px;
     margin: 20px;
 }
 #me {
-    width:52px;height:52px; border-radius: 25px; margin-right: 10px; margin-left: 5px; 
+    width:52px;height:52px; border-radius: 25px; margin-right: 10px; margin-left: 5px;     
 }
  #pic {
     display: flex;
@@ -116,7 +116,7 @@ form[name="leave_message"] .name, .email {
 
 form[name="leave_message"] button {
     align-self: flex-end;
-    background-color:  #04AA6D;
+    background-color: lightslategray;
     border-radius: 5px;
     border-style: none;
     color:white ;
@@ -124,14 +124,17 @@ form[name="leave_message"] button {
     margin-top: 10px;
  }
  section[id="messages"] ul {
-    color: yellowgreen;
+    color: slategray;
     list-style-type: square;
  }
  section[id="messages"] button {
-    color: yellowgreen;
-    background-color: aquamarine;
+    color: white;
+    background-color: gray;
+    border-radius: 5px;
+    border-style: none;
+    margin: 5px;
     size: 60em;
  }
  footer {
-    background-color: brown;
+    background-color: lightslategray;
  }
