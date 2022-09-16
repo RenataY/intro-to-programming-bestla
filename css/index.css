@@ -55,19 +55,19 @@ p {
     width: 70%;  
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
     #experience ul li {
         display: flex;
         justify-content: space-between;
         line-height: 1.5rem;
     }
 }
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     #experience ul li span {
         display: block;
     }
 }
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
     #skills ul, #projects ul {
         width: 70%;
         display: flex;
@@ -84,7 +84,7 @@ p {
 
 #connect ul li {
     display: inline;
-    padding: 1em;
+    padding: 1em;    
   }
 
 .fa {
@@ -92,7 +92,7 @@ p {
     color:navy;    
 }  
 
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
     form[name="leave_message"] {
         display: flex;
         justify-content: space-between;
@@ -102,16 +102,21 @@ p {
         padding: 10px;
     }
 }
+
 form[name="leave_message"] div {
     display: flex;
     flex-direction: column;    
 }
 form[name="leave_message"] .name, .email {
-   flex:0 0 20%;   
+   flex:0 0 20%;     
 }
 
+#message-name, #message-email {
+    height: 2rem;
+}
  form[name="leave_message"] .message {
-    flex:0 0 40%; 
+    flex:0 0 40%;    
+    
  }
 
 form[name="leave_message"] button {
@@ -137,4 +142,10 @@ form[name="leave_message"] button {
  }
  footer {
     background-color: lightslategray;
+    height: 3rem;    
+ }
+ footer p {
+    padding: 15px;
+    margin-left: 0;
+    
  }
